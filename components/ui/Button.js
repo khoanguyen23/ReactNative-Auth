@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 12,
     backgroundColor: Colors.primary500,
+    backgroundColor: Colors.primary600,
     elevation: 2,
     shadowColor: 'black',
     shadowOffset: { width: 1, height: 1 },

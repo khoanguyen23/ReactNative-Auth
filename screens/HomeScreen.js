@@ -1,11 +1,4 @@
-
-
-
-
-import axios from 'axios';
-import { useContext, useEffect, useState, useRef } from 'react';
-
-// import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useRef } from "react";
 import {
   Text,
   View,
@@ -17,119 +10,107 @@ import {
   Animated,
   FlatList,
 } from "react-native";
-import { AuthContext } from '../store/auth-context';
 import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/FontAwesome";
 import SlidingUpPanel from "rn-sliding-up-panel";
 
-function WelcomeScreen() {
-  const [fetchedMessage, setFetchedMesssage] = useState('');
 
-  const authCtx = useContext(AuthContext);
-  const token = authCtx.token;
 
-  useEffect(() => {
-    axios
-      .get(
-        'https://react-native-course-3cceb-default-rtdb.firebaseio.com/message.json?auth=' +
-        token
-      )
-      .then((response) => {
-        setFetchedMesssage(response.data);
-      });
-  }, [token]);
-  const Transactions = [
-    {
-      id: "1",
-      transactionImage:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      transactionName: "Shopping",
-      transactionDate: "25 April 20",
-      transactionTime: "4:00 PM",
 
-      amount: "$350",
-      description: "Buy some grocery",
-      type: "income",
-    },
-    {
-      id: "2",
-      transactionImage:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      transactionName: "Subcription",
-      transactionDate: "25 April 20",
-      transactionTime: "4:00 PM",
 
-      amount: "$350",
-      description: "Buy some grocery",
-      type: "income",
-    },
-    {
-      id: "3",
-      transactionImage:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      transactionName: "Food",
-      transactionDate: "25 April 20",
-      transactionTime: "4:00 PM",
+const Transactions = [
+  {
+    id: "1",
+    transactionImage:
+      "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    transactionName: "Shopping",
+    transactionDate: "25 April 20",
+    transactionTime: "4:00 PM",
 
-      amount: "$350",
-      description: "Buy some grocery",
-      type: "expenses",
-    },
-    {
-      id: "4",
-      transactionImage:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      transactionName: "Income",
-      transactionDate: "25 April 20",
-      transactionTime: "4:00 PM",
+    amount: "$350",
+    description: "Buy some grocery",
+    type: "income",
+  },
+  {
+    id: "2",
+    transactionImage:
+      "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    transactionName: "Subcription",
+    transactionDate: "25 April 20",
+    transactionTime: "4:00 PM",
 
-      amount: "$350",
-      description: "Buy some grocery",
-      type: "expenses",
-    },
-    {
-      id: "5",
-      transactionImage:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      transactionName: "Income",
-      transactionDate: "25 April 20",
-      transactionTime: "4:00 PM",
+    amount: "$350",
+    description: "Buy some grocery",
+    type: "income",
+  },
+  {
+    id: "3",
+    transactionImage:
+      "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    transactionName: "Food",
+    transactionDate: "25 April 20",
+    transactionTime: "4:00 PM",
 
-      amount: "$350",
-      description: "Buy some grocery",
-      type: "income",
-    },
-    {
-      id: "6",
-      transactionImage:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      transactionName: "Income",
-      transactionDate: "25 April 20",
-      transactionTime: "4:00 PM",
+    amount: "$350",
+    description: "Buy some grocery",
+    type: "expenses",
+  },
+  {
+    id: "4",
+    transactionImage:
+      "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    transactionName: "Income",
+    transactionDate: "25 April 20",
+    transactionTime: "4:00 PM",
 
-      amount: "$350",
-      description: "Buy some grocery",
-      type: "expenses",
-    },
-    // {
-    //   id: "5",
-    //   transactionImage:
-    //     "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   transactionName: "Jessica",
-    //   transactionDate: "25 April 20",
-    //   amount: "$350",
-    //   credit: true,
-    // },
-    // {
-    //   id: "6",
-    //   transactionImage:
-    //     "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   transactionName: "Jessica",
-    //   transactionDate: "25 April 20",
-    //   amount: "$350",
-    //   credit: true,
-    // },
-  ];
+    amount: "$350",
+    description: "Buy some grocery",
+    type: "expenses",
+  },
+  {
+    id: "5",
+    transactionImage:
+      "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    transactionName: "Income",
+    transactionDate: "25 April 20",
+    transactionTime: "4:00 PM",
+
+    amount: "$350",
+    description: "Buy some grocery",
+    type: "income",
+  },
+  {
+    id: "6",
+    transactionImage:
+      "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    transactionName: "Income",
+    transactionDate: "25 April 20",
+    transactionTime: "4:00 PM",
+
+    amount: "$350",
+    description: "Buy some grocery",
+    type: "expenses",
+  },
+  // {
+  //   id: "5",
+  //   transactionImage:
+  //     "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  //   transactionName: "Jessica",
+  //   transactionDate: "25 April 20",
+  //   amount: "$350",
+  //   credit: true,
+  // },
+  // {
+  //   id: "6",
+  //   transactionImage:
+  //     "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  //   transactionName: "Jessica",
+  //   transactionDate: "25 April 20",
+  //   amount: "$350",
+  //   credit: true,
+  // },
+];
+const HomeScreen = () => {
   const { width, height } = Dimensions.get("window");
   const carouselRef = useRef(null);
   const [viewMode, setViewMode] = useState("today");
@@ -145,11 +126,10 @@ function WelcomeScreen() {
   const _draggedValue = new Animated.Value(180);
 
   const ModalRef = useRef(null);
+
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title}>Welcome!</Text>
-           <Text>You authenticated successfully!</Text> */}
-      {/* <LinearGradient
+      <LinearGradient
         // Button Linear Gradient
         colors={["#F9D48D", "#F8EDD8"]}
         style={styles.linearGradient}
@@ -416,28 +396,10 @@ function WelcomeScreen() {
             </View>
           </View>
         </SlidingUpPanel>
-      </View> */}
-
+      </View>
     </View>
   );
-}
-
-
-
-// const styles = StyleSheet.create({
-//   rootContainer: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     padding: 32,
-//   },
-//   title: {
-//     fontSize: 20,
-//     fontWeight: 'bold',
-//     marginBottom: 8,
-//   },
-// });
-export default WelcomeScreen;
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -473,11 +435,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 6,
   },
-  title: {
-         fontSize: 20,
-         fontWeight: 'bold',
-        marginBottom: 8,
-      },
 });
 
-
+export default HomeScreen;
