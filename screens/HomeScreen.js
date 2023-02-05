@@ -127,7 +127,9 @@ const HomeScreen = () => {
 
   const ModalRef = useRef(null);
 
+
   return (
+  
     <View style={styles.container}>
       <LinearGradient
         // Button Linear Gradient
@@ -239,7 +241,6 @@ const HomeScreen = () => {
           </View>
         </View>
       </LinearGradient>
-
       <View style={{ flex: 1 }}>
         <SlidingUpPanel
           ref={ModalRef}
@@ -397,6 +398,7 @@ const HomeScreen = () => {
           </View>
         </SlidingUpPanel>
       </View>
+    
     </View>
   );
 };
@@ -404,9 +406,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-
     width: "100%",
     height: "100%",
+    // display:"none",
   },
   linearGradient: {
     paddingTop: 0,

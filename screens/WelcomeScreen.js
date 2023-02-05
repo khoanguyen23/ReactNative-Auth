@@ -149,7 +149,7 @@ function WelcomeScreen() {
     <View style={styles.container}>
       {/* <Text style={styles.title}>Welcome!</Text>
            <Text>You authenticated successfully!</Text> */}
-      {/* <LinearGradient
+      <LinearGradient
         // Button Linear Gradient
         colors={["#F9D48D", "#F8EDD8"]}
         style={styles.linearGradient}
@@ -221,7 +221,7 @@ function WelcomeScreen() {
         >
           <View
             style={{
-              backgroundColor: "#00A86B",
+              backgroundColor: "#fff",
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
@@ -416,7 +416,7 @@ function WelcomeScreen() {
             </View>
           </View>
         </SlidingUpPanel>
-      </View> */}
+      </View>
 
     </View>
   );

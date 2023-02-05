@@ -1,12 +1,27 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import * as React from 'react'
 
-const ProfileScreen = () => {
+export default function ProfileScreen ({navigation}) {
   return (
-    <View>
-      <Text>ProfileScreen</Text>
+    <View style={{flex:1, alignItems:'center',justifyContent:'center'}}>
+      <Text
+        onPress={() => navigation.navigate('Home')}
+        style={{fontSize:26,fontWeight:'bold'}}>profile Sccreen
+      </Text>
     </View>
   )
 }
 
-export default ProfileScreen
+
+// import { View, Text } from 'react-native'
+// import React from 'react'
+
+// const ProfileSCreen = () => {
+//   return (
+//     <View>
+//       <Text>ProfileSCreen</Text>
+//     </View>
+//   )
+// }
+
+// export default ProfileSCreen
